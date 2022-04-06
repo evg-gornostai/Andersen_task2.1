@@ -1,4 +1,4 @@
-package com.gornostai.hellotoast
+package com.gornostai.helloconstraint
 
 import org.junit.Test
 

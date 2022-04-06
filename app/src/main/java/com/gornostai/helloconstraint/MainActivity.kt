@@ -1,10 +1,11 @@
-package com.gornostai.hellotoast
+package com.gornostai.helloconstraint
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import helloconstraint.R
 
 class MainActivity : AppCompatActivity() {
 
