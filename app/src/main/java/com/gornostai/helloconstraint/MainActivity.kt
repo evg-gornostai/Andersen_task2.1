@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (savedInstanceState != null){
+            mCount = savedInstanceState.getInt("count",0)
+        }
 
         Log.d("MainActivity", "hello from the main screen!")
         Log.i("MainActivity", "hello from the main screen!")
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         Log.w("MainActivity", "hello from the main screen!")
 
         tvShowCount = findViewById(R.id.show_count)
+        tvShowCount.text = mCount.toString()
 
         btnToast = findViewById(R.id.button_toast)
         btnToast.setOnClickListener {
@@ -55,9 +59,16 @@ class MainActivity : AppCompatActivity() {
 
         btnSayHello = findViewById(R.id.button_say_hello)
         btnSayHello.setOnClickListener {
-            val intent = Intent(this,HelloActivity::class.java)
-            intent.putExtra("count",mCount)
+            val intent = Intent(this, HelloActivity::class.java)
+            intent.putExtra("count", mCount)
             startActivity(intent)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (mCount != 0) {
+            outState.putInt("count", mCount)
         }
     }
 
