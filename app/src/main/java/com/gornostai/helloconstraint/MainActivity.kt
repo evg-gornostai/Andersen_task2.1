@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Log.d("MainActivity", "hello from the main screen!")
+        Log.i("MainActivity", "hello from the main screen!")
+        Log.v("MainActivity", "hello from the main screen!")
+        Log.e("MainActivity", "hello from the main screen!")
+        Log.w("MainActivity", "hello from the main screen!")
 
         tvShowCount = findViewById(R.id.show_count)
 
