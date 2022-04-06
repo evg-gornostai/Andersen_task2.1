@@ -41,17 +41,24 @@ class MainActivity : AppCompatActivity() {
             mCount = 0
             tvShowCount.text = mCount.toString()
             btnZero.setBackgroundColor(resources.getColor(R.color.gray, null))
+            btnCount.setBackgroundColor(resources.getColor(R.color.purple_200, null))
         }
     }
 
-    fun showToast(){
-        Toast.makeText(this,R.string.toast_message,Toast.LENGTH_SHORT).show()
+    fun showToast() {
+        Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT).show()
     }
 
-    fun countUp(){
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun countUp() {
         mCount++
         tvShowCount.text = mCount.toString()
         btnZero.setBackgroundColor(Color.GREEN)
+        if (mCount % 2 == 0) {
+            btnCount.setBackgroundColor(resources.getColor(R.color.red, null))
+        } else {
+            btnCount.setBackgroundColor(resources.getColor(R.color.purple_200, null))
+        }
     }
 
 }
