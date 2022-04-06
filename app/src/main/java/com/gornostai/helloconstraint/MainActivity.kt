@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnToast: Button
     private lateinit var btnCount: Button
+    private lateinit var btnZero: Button
     private lateinit var tvShowCount: TextView
 
     private var mCount = 0
@@ -29,6 +30,12 @@ class MainActivity : AppCompatActivity() {
         btnCount = findViewById(R.id.button_count)
         btnCount.setOnClickListener {
             countUp()
+        }
+
+        btnZero = findViewById(R.id.button_zero)
+        btnZero.setOnClickListener {
+            mCount = 0
+            tvShowCount.text = mCount.toString()
         }
     }
 
