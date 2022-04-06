@@ -1,5 +1,6 @@
 package com.gornostai.helloconstraint
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnToast: Button
     private lateinit var btnCount: Button
     private lateinit var btnZero: Button
+    private lateinit var btnSayHello: Button
     private lateinit var tvShowCount: TextView
 
     private var mCount = 0
@@ -49,6 +51,13 @@ class MainActivity : AppCompatActivity() {
             tvShowCount.text = mCount.toString()
             btnZero.setBackgroundColor(resources.getColor(R.color.gray, null))
             btnCount.setBackgroundColor(resources.getColor(R.color.purple_200, null))
+        }
+
+        btnSayHello = findViewById(R.id.button_say_hello)
+        btnSayHello.setOnClickListener {
+            val intent = Intent(this,HelloActivity::class.java)
+            intent.putExtra("count",mCount)
+            startActivity(intent)
         }
     }
 
