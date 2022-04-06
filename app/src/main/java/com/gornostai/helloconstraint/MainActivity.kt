@@ -1,10 +1,13 @@
 package com.gornostai.helloconstraint
 
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import helloconstraint.R
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mCount = 0
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         btnZero.setOnClickListener {
             mCount = 0
             tvShowCount.text = mCount.toString()
+            btnZero.setBackgroundColor(resources.getColor(R.color.gray, null))
         }
     }
 
@@ -46,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     fun countUp(){
         mCount++
         tvShowCount.text = mCount.toString()
+        btnZero.setBackgroundColor(Color.GREEN)
     }
 
 }
